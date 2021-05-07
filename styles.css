@@ -24,6 +24,18 @@ body {
     font-size: 16pt;
 }
 
+.correct {
+    color: #81c51b;
+}
+
+.incorrect {
+    color: red;
+}
+
+.current {
+    color: orange;
+}
+
 #input-row {
     margin: 0 auto;
     padding: 5px;
