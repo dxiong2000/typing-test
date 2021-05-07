@@ -2,4 +2,5 @@
 
 A minimalistic typing test game!
 
-![Screenshot 2021-05-06 232106](https://user-images.githubusercontent.com/38361491/117406342-c7dcf580-aec1-11eb-8172-2d31160a688b.png)
+![unknown](https://user-images.githubusercontent.com/38361491/117518242-db38a100-af53-11eb-9615-b49b345ccfa0.png)
+
