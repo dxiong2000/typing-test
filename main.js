@@ -179,6 +179,7 @@ inputText.addEventListener("keypress", e => {
 
 window.addEventListener('DOMContentLoaded', (event) => {
     setTypeText(wordCount);
+    document.getElementById('slash').style.visibility = 'hidden';
     document.getElementById('user-input').focus();
 });
 
