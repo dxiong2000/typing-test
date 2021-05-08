@@ -123,6 +123,13 @@ function getDifference(target, s) {
 }
 
 inputText.addEventListener("keypress", e => {
+    if (typeTextIdx === wordCount - 1 && inputText.value + e.key === typeTextArray[typeTextIdx]) {
+        endTime = Date.now();
+        currentWordSpan.className = "correct";
+        numCorrect += 1;
+        onTestEnd();
+    }
+
     if (typeTextIdx > typeTextArray.length - 1) {
         return;
     }
