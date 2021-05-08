@@ -107,9 +107,10 @@ function onRestartButtonClick() {
 
 function calculateWPM() {
     // https://www.speedtypingonline.com/typing-equations
+    let avgWordLength = typeTextArray.join('').length/typeTextArray.length;
     let delta = (endTime - startTime)/1000;
     let mins = delta/60.0;
-    let grossWPM = (characterCount/5.0)/mins;
+    let grossWPM = (characterCount/avgWordLength)/mins;
     return Math.max(grossWPM - numErrors/mins, 0);
 }
 
