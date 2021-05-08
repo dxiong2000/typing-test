@@ -81,14 +81,10 @@ function calculateWPM() {
     let delta = (endTime - startTime)/1000;
     let mins = delta/60.0;
     let grossWPM = (characterCount/5.0)/mins;
-    console.log(delta, mins, characterCount, grossWPM);
     return Math.max(grossWPM - numErrors/mins, 0);
 }
 
 function onTestEnd() {
-    console.log("Accuracy:", (numCorrect)/wordCount);
-    console.log("WPM:", calculateWPM());
-    console.log(numErrors);
     document.getElementById('wpm-display').textContent = Math.round(calculateWPM()).toString();
     document.getElementById('acc-display').textContent = Math.round(100*(numCorrect)/wordCount).toString() + "%";
     document.getElementById('slash').style.visibility = 'visible';
