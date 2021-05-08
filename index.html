@@ -8,13 +8,17 @@
   <meta name="description" content="A simple typing test">
   <meta name="author" content="Daniel Xiong">
   <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="https://deskthority.net/wiki/images/thumb/7/73/Geekhack_favicon.svg/250px-Geekhack_favicon.svg.png">
 </head>
 <body>
     <div id="type-test-box">
+      <div id='display-row'>
+        <span id='wpm-display'></span> <span id='slash'>/</span> <span id="acc-display"></span>
+      </div>
       <div id="type-test-text"></div>
       <div id="input-row">
         <input id="user-input" type="text" autofocus autocapitalize="false" autocomplete="false" spellcheck="false">
-        <button id="restart" onclick=onRestartButtonClick(event)>reset</button>
+        <button id="restart" onclick=onRestartButtonClick()>reset</button>
       </div>
     </div>
   <script src="main.js"></script>

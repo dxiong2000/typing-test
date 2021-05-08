@@ -15,9 +15,26 @@ body {
     height: fit-content;
 }
 
+#display-row {
+    margin: 0px auto;
+    width: 50%;
+    height: 5vh;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30pt;
+}
+
+#wpm-display {
+    
+}
+
+#acc-display {
+    
+}
+
 #type-test-text {
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px 15px 20px;
     font-family: Arial, Helvetica, sans-serif;
     width: 50%;
     text-align:left;
