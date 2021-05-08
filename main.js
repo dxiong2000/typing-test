@@ -181,7 +181,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 window.addEventListener('keyup', (event) => {
-    if (event.key === 'tab') {
+    if (event.keyCode === 9) {
         onRestartButtonClick();
     }
 });
