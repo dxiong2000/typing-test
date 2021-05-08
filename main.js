@@ -180,7 +180,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('user-input').focus();
 });
 
-window.addEventListener('keyup', (event) => {
+window.addEventListener('keydown', (event) => {
     if (event.keyCode === 9) {
         onRestartButtonClick();
     }
