@@ -15,7 +15,7 @@ var startTime = null;
 var endTime = null;
 var isFirstInput = true;
 
-
+// helper function to get randomized text
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -28,6 +28,35 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+// helper function to get number of typing errors
+function getDifference(target, s) {
+    let diff = 0;
+    let getCounter = (str) => {
+        let str_counter = {};
+        for (let i = 0; i < str.length; i++) {
+            if (str_counter.hasOwnProperty(str.charAt(i))) {
+                str_counter[str.charAt(i)]++;
+            }
+            else {
+                str_counter[str.charAt(i)] = 1;
+            }
+        }
+        return str_counter;
+    };
+
+    let target_counter = getCounter(target);
+    let s_counter = getCounter(s);
+    for (const c in target_counter) {
+        if (s_counter[c]) {
+            diff += Math.abs(s_counter[c] - target_counter[c]);
+        }
+        else {
+            diff += target_counter[c];
+        }
+    }
+    return diff;
 }
 
 function setTypeText(numWords) {
@@ -90,34 +119,7 @@ function onTestEnd() {
     document.getElementById('slash').style.visibility = 'visible';
 }
 
-function getDifference(target, s) {
-    let diff = 0;
-    let getCounter = (str) => {
-        let str_counter = {};
-        for (let i = 0; i < str.length; i++) {
-            if (str_counter.hasOwnProperty(str.charAt(i))) {
-                str_counter[str.charAt(i)]++;
-            }
-            else {
-                str_counter[str.charAt(i)] = 1;
-            }
-        }
-        return str_counter;
-    };
-
-    let target_counter = getCounter(target);
-    let s_counter = getCounter(s);
-    for (const c in target_counter) {
-        if (s_counter[c]) {
-            diff += Math.abs(s_counter[c] - target_counter[c]);
-        }
-        else {
-            diff += target_counter[c];
-        }
-    }
-    return diff;
-}
-
+// event listener for user input
 inputText.addEventListener("keypress", e => {
     if (typeTextIdx > typeTextArray.length - 1) {
         return;
@@ -130,7 +132,6 @@ inputText.addEventListener("keypress", e => {
         typeTextIdx += 1;
         onTestEnd();
     }
-
 
     if (inputText.value.charAt(0) === " ") {
         inputText.value = inputText.value.slice(1);
@@ -180,6 +181,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('user-input').focus();
 });
 
+// event listener for tab keypress, refreshes text
 window.addEventListener('keydown', (event) => {
     if (event.keyCode === 9) {
         onRestartButtonClick();
